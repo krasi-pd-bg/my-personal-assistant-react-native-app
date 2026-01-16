@@ -1,5 +1,19 @@
 // utils/constants.js
 
+export const COLORS = {
+  primary: '#6200EA',
+  secondary: '#03DAC6',
+  background: '#F5F5F5',
+  surface: '#FFFFFF',
+  error: '#B00020',
+  text: '#000000',
+  textSecondary: '#666666',
+  border: '#E0E0E0',
+  success: '#4CAF50',
+  warning: '#FF9800',
+  info: '#2196F3',
+};
+
 export const ReminderCategory = {
   PAYMENT: 'payment',
   HEALTH: 'health',

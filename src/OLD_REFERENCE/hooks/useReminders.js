@@ -1,9 +1,9 @@
 // hooks/useReminders.js
 import { useState, useEffect } from 'react';
-import reminderStorage from '../services/storage/reminderStorage';
-import notificationService from '../services/notifications/notificationService';
+import reminderStorage from '../../services/storage/reminderStorage';
+import notificationService from '../../services/notifications/notificationService';
 
-export const useReminders = () => {
+export default function useReminders() {
   const [reminders, setReminders] = useState([]);
   const [loading, setLoading] = useState(true);
 

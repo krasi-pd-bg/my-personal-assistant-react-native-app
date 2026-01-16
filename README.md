@@ -6,50 +6,57 @@
 
 ## 📊 Project Status
 
-### Current Phase: **Фаза 1 - Setup & Basic Structure**
-**Прогрес:** 10% ⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜
+### Current Phase: **Phase 2 - Core Functionality** ✅
+**Прогрес:** 50% ████████⬜⬜⬜⬜⬜⬜⬜⬜
 
-### Last Updated: [15.01'2026]
+### Last Updated: [16.01.2026]
 
 ---
 
-## ✅ Completed Tasks
+## ✅ Completed (WORKING!)
 
-### Setup & Initialization
-- [x] Проектът е създаден с Expo
-- [x] Git repository инициализиран
-- [x] README файл създаден
-- [x] Основна структура на папките създадена
-- [x] Package dependencies инсталирани
+### Phase 1 - Foundation ✅ 100%
+- [x] ✅ **Expo project setup**
+- [x] ✅ **Git repository initialized**
+- [x] ✅ **Dependencies installed and tested**
+- [x] ✅ **Bottom Tab Navigation** (Home, Calendar)
+- [x] ✅ **Stack Navigation** (Home → Add Reminder)
+- [x] ✅ **AsyncStorage integration** - Data persists after app restart!
 
-### Phase 1 - Basic Structure
-- [x] Създадени constants и utils файлове
-- [x] Storage service имплементиран
-- [ ] Navigation setup (Stack, Tabs)
-- [x] HomeScreen базов layout
-- [x] ReminderCard компонент
+### Phase 2 - Core Features ✅ 50%
+- [x] ✅ **Home Screen** - List of reminders with delete functionality
+- [x] ✅ **Add Reminder Screen** - Form with title & description
+- [x] ✅ **Empty state** - "No reminders yet" message
+- [x] ✅ **Floating Action Button** (+) for adding reminders
+- [x] ✅ **Save to AsyncStorage** - Reminders persist across sessions
+- [x] ✅ **Delete functionality** - Remove reminders with 🗑️ button
+- [ ] ⏳ Edit Reminder Screen
+- [ ] ⏳ Date Picker
+- [ ] ⏳ Time Picker
+- [ ] ⏳ Category Selector
+- [ ] ⏳ Priority Selector
 
-### Phase 2 - Core Functionality
-- [ ] Add Reminder screen
-- [ ] Edit Reminder screen
-- [ ] Delete functionality
-- [ ] Category selector
-- [ ] Date/Time pickers
-- [ ] Basic notification setup
+---
 
-### Phase 3 - Advanced Features
-- [ ] Advanced notifications (преди събития)
-- [ ] Recurrence логика
-- [ ] Calendar view
-- [ ] Snooze функционалност
-- [ ] Filter и search
+## 🎯 Current Working Features
 
-### Phase 4 - Polish & Extras
-- [ ] Dashboard със статистики
-- [ ] Settings screen
-- [ ] Dark mode (optional)
-- [ ] UI/UX improvements
-- [ ] Testing на устройство
+### ✅ What Works Right Now:
+1. **Navigation System**
+   - Bottom tabs: Home, Calendar
+   - Stack navigation: Home → Add Reminder
+   - Back button navigation
+
+2. **Reminder Management**
+   - Create new reminders with title & description
+   - View all reminders in a list
+   - Delete reminders
+   - Data persists after closing the app ✨
+
+3. **User Interface**
+   - Clean, modern design
+   - Loading indicators
+   - Empty state messages
+   - Card-based reminder display
 
 ---
 
@@ -57,187 +64,282 @@
 
 ```
 personal-assistant/
-├── App.js
-├── package.json
-├── README.md
-└── app.json
-
-TODO: Създай следната структура - създадена е.
-├── src/
-│   ├── screens/
-│   ├── components/
-│   ├── services/
-│   ├── hooks/
-│   ├── context/
-│   └── utils/
+├── App.js ✅ Main application (all code currently here)
+├── package.json ✅
+├── README.md ✅
+├── app.json ✅
+└── src/
+    └── OLD_REFERENCE/ 📚 (Old files for reference)
+        ├── screens/
+        ├── components/
+        ├── services/
+        ├── utils/
+        ├── hooks/
+        └── context/
 ```
+
+**Note:** Currently working with single-file approach (App.js). Will refactor into separate components as features grow.
 
 ---
 
 ## 🔧 Technologies & Dependencies
 
-### Core
-- **React Native** via Expo
-- **React Navigation** - Navigation
-- **AsyncStorage** - Local storage
-- **Notifee** - Push notifications
-
-### Planned Dependencies
+### Installed & Working ✅
 ```json
 {
-  "@react-navigation/native": "^6.1.9",
-  "@react-navigation/stack": "^6.3.20",
-  "@react-navigation/bottom-tabs": "^6.5.11",
-  "@react-native-async-storage/async-storage": "^1.21.0",
-  "@notifee/react-native": "^7.8.2",
-  "react-native-vector-icons": "^10.0.3",
-  "react-native-calendars": "^1.1302.0",
-  "@react-native-community/datetimepicker": "^7.6.2",
-  "react-native-modal": "^13.0.1",
-  "date-fns": "^3.0.0"
+  "@react-navigation/native": "^7.1.27",
+  "@react-navigation/bottom-tabs": "^7.9.1",
+  "@react-navigation/stack": "^7.6.14",
+  "@react-native-async-storage/async-storage": "^2.2.0",
+  "react-native-screens": "latest",
+  "react-native-safe-area-context": "latest",
+  "react-native-gesture-handler": "latest",
+  "expo": "~54.0.31",
+  "react": "19.1.0",
+  "react-native": "0.81.5"
 }
 ```
 
-**Status:** ❌ Not installed yet - инсталирани са.
+### Planned for Next Phases
+```json
+{
+  "@react-native-community/datetimepicker": "^8.6.0",
+  "@notifee/react-native": "^9.1.8",
+  "react-native-calendars": "^1.1313.0",
+  "date-fns": "^4.1.0"
+}
+```
 
 ---
 
-## 🎯 Next Steps
+## 🎯 Next Steps (Priority Order)
 
-1. **Създай папковата структура:** - 
-   ```bash
-   mkdir -p src/{screens,components,services,hooks,context,utils}
-   mkdir -p src/screens/{Home,Reminders,Calendar,Categories,Settings}
-   mkdir -p src/components/{common,reminders,modals}
-   mkdir -p src/services/{storage,notifications,dateTime}
-   ```
+### Immediate - Session 3
+1. **Add Date Picker** to Add Reminder screen
+2. **Add Time Picker** to Add Reminder screen
+3. **Add Category Selector** (dropdown with icons)
+4. **Add Priority Selector** (High/Medium/Low)
+5. **Test** saving with all fields
 
-2. **Инсталирай dependencies:** - инсталирани са.
-   ```bash
-   npx expo install @react-navigation/native @react-navigation/stack
-   npx expo install @react-native-async-storage/async-storage
-   npx expo install react-native-vector-icons
-   ```
+### Short Term - Session 4-5
+6. **Edit Reminder Screen** - Full edit functionality
+7. **Visual improvements** - Category colors, priority badges
+8. **Sort & Filter** - By date, category, priority
+9. **Calendar View** - Show reminders on calendar
 
-3. **Създай constants.js файл** в `src/utils/` - създаден е.
+### Medium Term - Session 6-8
+10. **Notifications Setup** (Notifee)
+11. **Push notifications** at reminder time
+12. **Snooze functionality**
+13. **Recurring reminders**
 
-4. **Създай reminderStorage.js** в `src/services/storage/` - създаден е.
-
-5. **Тествай основния navigation flow**
+### Long Term - Future
+14. **Categories Management** screen
+15. **Settings** screen
+16. **Statistics/Dashboard**
+17. **Dark mode**
+18. **Backup/Restore**
 
 ---
 
-## 📝 Development Notes
+## 🧪 Testing Checklist
 
-### Session 1 (ДАТА)
-- Проектът стартиран с Expo
-- Git repository създадено
-- README файл създаден
-- **Next:** Създаване на папкова структура - създадена е.
+### ✅ Tested & Working
+- [x] App starts without errors
+- [x] Bottom tabs navigation works
+- [x] Stack navigation (Home → Add) works
+- [x] Can create reminders with title
+- [x] Can create reminders with description
+- [x] Reminders display in list
+- [x] Can delete reminders
+- [x] **Data persists after app restart** ✨
+- [x] Empty state shows correctly
 
-### Session 2 (ДАТА)
-- TODO: Добави бележки тук
+### ⏳ To Test Next
+- [ ] Date picker integration
+- [ ] Time picker integration
+- [ ] Category selection
+- [ ] Priority selection
+- [ ] Edit functionality
+- [ ] Calendar view
 
-### Session 3 (ДАТА)
-- TODO: Добави бележки тук
+---
+
+## 💡 Development Approach
+
+### ✅ Current Methodology: **Step-by-Step Testing**
+
+We build **one feature at a time** and test immediately:
+
+1. **Write minimal code** for new feature
+2. **Test on device** - Does it work?
+3. **Fix issues** before moving forward
+4. **Commit when stable**
+5. **Repeat** for next feature
+
+**Benefits:**
+- Always have working version
+- Catch bugs immediately
+- Understand every piece of code
+- Easy to debug
 
 ---
 
 ## 🐛 Known Issues
 
-- Няма засечени проблеми засега
+### Current Session
+- ✅ No known issues! Everything tested works.
 
----
-
-## 💡 Ideas & Future Features
-
-### Priority 1 (Must Have)
-- ✅ Basic CRUD за напомняния
-- ✅ Push notifications
-- ✅ Категории и приоритети
-- ✅ Calendar view
-
-### Priority 2 (Should Have)
-- 🔄 Recurring reminders
-- 🔄 Snooze функционалност
-- 🔄 Search & filter
-- 🔄 Statistics
-
-### Priority 3 (Nice to Have)
-- ⏳ Dark mode
-- ⏳ Custom categories
-- ⏳ Backup/Restore
-- ⏳ Cloud sync (requires backend)
-- ⏳ Multi-language support
-- ⏳ Widget support
+### Previous Sessions (Resolved)
+- ~~Vector icons not working~~ → Fixed: Using emojis instead
+- ~~AsyncStorage import error~~ → Fixed: Proper dependencies installed
+- ~~Navigation crash~~ → Fixed: Added gesture-handler
+- ~~StatusBar error~~ → Fixed: Removed problematic import
 
 ---
 
 ## 🚀 Running the Project
 
 ```bash
-# Start the development server
+# Start development server
 npm start
 
-# Run on iOS
-npm run ios
+# Or with clean cache
+npx expo start -c
 
-# Run on Android
-npm run android
+# On Android device (via Expo Go)
+# Scan QR code with Expo Go app
 
-# Run on web
-npm run web
+# View logs
+# Check terminal output for errors
+```
+
+### Testing Changes
+```bash
+# After code changes, in terminal:
+r  # Reload app
+
+# Or shake device → Reload
 ```
 
 ---
 
-## 📱 Testing Checklist
+## 📝 Git Workflow
 
-- [ ] Notifications работят на физическо устройство (iOS)
-- [ ] Notifications работят на физическо устройство (Android)
-- [ ] AsyncStorage запазва данни правилно
-- [ ] App работи offline
-- [ ] Всички екрани са responsive
-- [ ] Navigation flow е smooth
-- [ ] Няма memory leaks
-
----
-
-## 🤝 Contributing Notes
-
-### Code Style
-- Използвай functional components
-- Използвай hooks където е възможно
-- Коментирай сложна логика
-- Именувай променливи и функции описателно
-
-### Git Workflow
+### Recent Commits
 ```bash
-# Нов feature
-git checkout -b feature/название-на-feature
-git commit -m "Add: описание на промените"
-git push origin feature/название-на-feature
-
-# Bug fix
-git checkout -b fix/описание-на-бъга
+# Commit after each working feature
+git add .
+git commit -m "Add: Working reminder list with AsyncStorage"
+git commit -m "Add: Create reminder form with save functionality"
 ```
 
 ### Commit Message Format
-- `Add:` - Нова функционалност
-- `Update:` - Промяна в съществуваща функционалност
+- `Add:` - New feature that works
 - `Fix:` - Bug fix
-- `Style:` - UI/UX промени
-- `Refactor:` - Code refactoring
-- `Docs:` - Документация
+- `Update:` - Change to existing feature
+- `Test:` - Testing changes
+- `Docs:` - Documentation only
+
+---
+
+## 📱 App Screenshots (Conceptual)
+
+### Home Screen - Empty State
+```
+┌─────────────────────┐
+│  📝 My Reminders    │
+├─────────────────────┤
+│                     │
+│       📝            │
+│  No reminders yet   │
+│                     │
+│  Tap + to create    │
+│                     │
+│                     │
+│              ┌───┐  │
+│              │ + │  │
+│              └───┘  │
+└─────────────────────┘
+```
+
+### Home Screen - With Reminders
+```
+┌─────────────────────┐
+│  📝 My Reminders    │
+├─────────────────────┤
+│ ┌─────────────────┐ │
+│ │ Buy groceries   │🗑│
+│ │ Don't forget... │ │
+│ │ 16.01.2026      │ │
+│ └─────────────────┘ │
+│ ┌─────────────────┐ │
+│ │ Dentist appt    │🗑│
+│ │ Annual checkup  │ │
+│ │ 16.01.2026      │ │
+│ └─────────────────┘ │
+│              ┌───┐  │
+│              │ + │  │
+└──────────────└───┘──┘
+```
+
+---
+
+## 🎓 Learnings & Notes
+
+### Session 1 [15.01.2026]
+- Started with Expo
+- Struggled with complex setup
+- Learned: Start simple!
+
+### Session 2 [16.01.2026]
+- **Big lesson:** Build step-by-step! 🎯
+- Started over with minimal working code
+- Each feature tested before moving on
+- Result: Everything works perfectly!
+
+### Key Insights
+1. **Single file approach works** for early development
+2. **Test immediately** after each change
+3. **AsyncStorage is simple** and reliable
+4. **Emojis > Vector icons** for quick prototyping
+5. **Reload often** to catch errors early
 
 ---
 
 ## 📞 Questions & Support
 
-За въпроси или помощ, добави коментар в следващата сесия с Claude.
+### Common Issues & Solutions
+
+**Q: App not loading?**
+- Run `npx expo start -c` to clear cache
+
+**Q: Changes not showing?**
+- Press `r` in terminal to reload
+- Or shake device → Reload
+
+**Q: AsyncStorage not persisting?**
+- Check if data is saved: Add console.log in save function
+- Verify you're using `await` with AsyncStorage calls
 
 ---
 
-**Версия:** 0.1.0  
-**Последна актуализация:** [15.01'2026]  
-**Разработчик:** [krasi_pd_bg]
+## 🎯 Success Metrics
+
+### Phase 2 Goals (Current)
+- [x] ✅ 50% - Basic CRUD working
+- [ ] ⏳ 75% - Add date/time/category pickers
+- [ ] ⏳ 100% - Edit functionality complete
+
+### Phase 3 Goals (Upcoming)
+- [ ] Calendar view with data
+- [ ] Notifications working on device
+- [ ] Recurring reminders
+
+---
+
+**Version:** 0.3.0  
+**Last Updated:** [16.01.2026]  
+**Developer:** [krasi_pd_bg]  
+**Status:** ✅ WORKING - Ready for next features!  
+**Device:** Android (tested via Expo Go)

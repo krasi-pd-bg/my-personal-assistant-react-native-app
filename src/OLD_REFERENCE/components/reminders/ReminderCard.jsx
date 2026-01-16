@@ -6,21 +6,20 @@ import {
   TouchableOpacity,
   StyleSheet,
 } from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { ReminderCategory, Priority } from '../../utils/constants';
 
-export const ReminderCard = ({ reminder, onPress, onComplete }) => {
+export default function ReminderCard({ reminder, onPress, onComplete }) {
   
   const getCategoryIcon = () => {
     const icons = {
-      [ReminderCategory.PAYMENT]: 'credit-card',
-      [ReminderCategory.HEALTH]: 'medical-bag',
-      [ReminderCategory.EVENT]: 'calendar',
-      [ReminderCategory.CAR]: 'car',
-      [ReminderCategory.HOME]: 'home',
-      [ReminderCategory.TASK]: 'check-circle',
+      [ReminderCategory.PAYMENT]: '💳',
+      [ReminderCategory.HEALTH]: '⚕️',
+      [ReminderCategory.EVENT]: '📅',
+      [ReminderCategory.CAR]: '🚗',
+      [ReminderCategory.HOME]: '🏠',
+      [ReminderCategory.TASK]: '✅',
     };
-    return icons[reminder.category] || 'bell';
+    return icons[reminder.category] || '🔔';
   };
 
   const getPriorityColor = () => {
@@ -57,11 +56,7 @@ export const ReminderCard = ({ reminder, onPress, onComplete }) => {
           { backgroundColor: getPriorityColor() + '20' }
         ]}
       >
-        <Icon
-          name={getCategoryIcon()}
-          size={24}
-          color={getPriorityColor()}
-        />
+        <Text style={styles.iconEmoji}>{getCategoryIcon()}</Text>
       </View>
 
       <View style={styles.content}>
@@ -86,19 +81,19 @@ export const ReminderCard = ({ reminder, onPress, onComplete }) => {
         </View>
       </View>
 
-      <TouchableOpacity
-        style={styles.completeButton}
-        onPress={onComplete}
-      >
-        <Icon
-          name={reminder.completed ? 'check-circle' : 'circle-outline'}
-          size={28}
-          color={reminder.completed ? '#34C759' : '#C7C7CC'}
-        />
-      </TouchableOpacity>
+      {onComplete && (
+        <TouchableOpacity
+          style={styles.completeButton}
+          onPress={onComplete}
+        >
+          <Text style={styles.completeIcon}>
+            {reminder.completed ? '✅' : '⭕'}
+          </Text>
+        </TouchableOpacity>
+      )}
     </TouchableOpacity>
   );
-};
+}
 
 const styles = StyleSheet.create({
   card: {
@@ -124,6 +119,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     marginRight: 12,
+  },
+  iconEmoji: {
+    fontSize: 24,
   },
   content: {
     flex: 1,
@@ -160,5 +158,8 @@ const styles = StyleSheet.create({
   completeButton: {
     justifyContent: 'center',
     paddingLeft: 8,
+  },
+  completeIcon: {
+    fontSize: 28,
   },
 });
