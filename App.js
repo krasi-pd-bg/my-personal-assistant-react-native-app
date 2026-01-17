@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, FlatList, ActivityIndicator, TextInput, ScrollView, Platform } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, FlatList, ActivityIndicator, TextInput, ScrollView, Platform, KeyboardAvoidingView } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -11,6 +11,22 @@ const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
 const STORAGE_KEY = '@reminders';
 
+// ⏳ НОВО - Категории
+const CATEGORIES = [
+    { id: 'work', label: 'Work', icon: '💼' },
+    { id: 'home', label: 'Home', icon: '🏠' },
+    { id: 'shopping', label: 'Shop', icon: '🛒' },
+    { id: 'health', label: 'Health', icon: '💊' },
+    { id: 'study', label: 'Study', icon: '🎓' },
+    { id: 'fitness', label: 'Fitness', icon: '🏋️' },
+    { id: 'finance', label: 'Finance', icon: '💰' },
+    { id: 'transport', label: 'Transport', icon: '🚗' },
+    { id: 'family', label: 'Family', icon: '👨‍👩‍👧' },
+    { id: 'events', label: 'Events', icon: '🎉' },
+    { id: 'calls', label: 'Calls', icon: '📞' },
+    { id: 'other', label: 'Other', icon: '🎯' },
+];
+
 // Add Reminder Screen
 function AddReminderScreen({ navigation }) {
     const [title, setTitle] = useState('');
@@ -19,6 +35,7 @@ function AddReminderScreen({ navigation }) {
     const [showDatePicker, setShowDatePicker] = useState(false);
     const [time, setTime] = useState(new Date());
     const [showTimePicker, setShowTimePicker] = useState(false);
+    const [category, setCategory] = useState('work'); // ⏳ НОВО - default категория
 
     const onDateChange = (event, selectedDate) => {
         setShowDatePicker(Platform.OS === 'ios');
@@ -47,6 +64,7 @@ function AddReminderScreen({ navigation }) {
                 description: description,
                 date: date.toISOString(),
                 time: time.toISOString(),
+                category: category,
                 createdAt: new Date().toISOString(),
             };
 
@@ -59,6 +77,7 @@ function AddReminderScreen({ navigation }) {
             setDescription('');
             setDate(new Date());
             setTime(new Date());
+            setCategory('work');
             navigation.goBack();
         } catch (error) {
             console.error('Error saving reminder:', error);
@@ -67,7 +86,7 @@ function AddReminderScreen({ navigation }) {
     };
 
     return (
-        <View style={styles.container}>
+        <KeyboardAvoidingView style={styles.container}>
             <ScrollView style={styles.scrollView}>
                 <View style={styles.form}>
                     <Text style={styles.label}>Title</Text>
@@ -105,6 +124,29 @@ function AddReminderScreen({ navigation }) {
                             onChange={onDateChange}
                         />
                     )}
+                    <Text style={styles.label}>Category</Text>
+                    <View style={styles.categoryGrid}>
+                        {CATEGORIES.map((cat) => (
+                            <TouchableOpacity
+                                key={cat.id}
+                                style={[
+                                    styles.categoryButton,
+                                    category === cat.id && styles.categoryButtonSelected
+                                ]}
+                                onPress={() => setCategory(cat.id)}
+                            >
+                                <Text style={styles.categoryIcon}>{cat.icon}</Text>
+                                <Text style={[
+                                    styles.categoryLabel,
+                                    category === cat.id && styles.categoryLabelSelected
+                                ]}>
+                                    {cat.label}
+                                </Text>
+                            </TouchableOpacity>
+                        ))}
+                    </View>
+
+                    <TouchableOpacity style={styles.saveButton} onPress={handleSave}></TouchableOpacity>
 
                     <Text style={styles.label}>Time</Text>
                     <TouchableOpacity
@@ -130,7 +172,7 @@ function AddReminderScreen({ navigation }) {
                     </TouchableOpacity>
                 </View>
             </ScrollView>
-        </View>
+        </KeyboardAvoidingView>
     );
 }
 
@@ -442,14 +484,46 @@ const styles = StyleSheet.create({
         color: '#333',
     },
     scrollView: {
-  flex: 1,
-},
-container: {
-  flex: 1,
-  backgroundColor: '#f5f5f5',
-},
-form: {
-  padding: 20,
-},
+        flex: 1,
+    },
+    container: {
+        flex: 1,
+        backgroundColor: '#f5f5f5',
+    },
+    form: {
+        padding: 20,
+    },
+    categoryGrid: {
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        marginBottom: 20,
+        gap: 10,
+    },
+    categoryButton: {
+        width: '30%',
+        backgroundColor: '#f0f0f0',
+        padding: 12,
+        borderRadius: 8,
+        alignItems: 'center',
+        borderWidth: 2,
+        borderColor: '#ddd',
+    },
+    categoryButtonSelected: {
+        backgroundColor: '#E8D5FF',
+        borderColor: '#6200EA',
+    },
+    categoryIcon: {
+        fontSize: 24,
+        marginBottom: 5,
+    },
+    categoryLabel: {
+        fontSize: 12,
+        color: '#666',
+        textAlign: 'center',
+    },
+    categoryLabelSelected: {
+        color: '#6200EA',
+        fontWeight: 'bold',
+    },
 
 });
